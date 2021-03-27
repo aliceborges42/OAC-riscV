@@ -201,18 +201,12 @@ inline void execute () {
         case I_lb:
             breg[rd] = lb(breg[rs1], imm12_i);
             break;
-        // case I_lh:
-        //     load = lh;
-        //     break;
         case I_lw:
             breg[rd] = lw(breg[rs1], imm12_i);
             break;
         case I_lbu:
             breg[rd] = lbu(breg[rs1], imm12_i);
             break;
-        /* case I_lhu:
-            load = &lhu;
-            break; */
         case I_addi:
             breg[rd] = breg[rs1] + imm32_t;
             break;
