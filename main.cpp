@@ -22,7 +22,7 @@ int main (int argc, const char * argv[]) {
     int n;
     init();     // inicia parametros globais
 
-    load_mem("code.bin", 0);
+    load_mem("text.bin", 0);
     load_mem("data.bin", 0x2000);
 
     cout << "Numero de instrucoes a imprimir: ";
@@ -30,11 +30,13 @@ int main (int argc, const char * argv[]) {
     for (int i=0; i < n; i++) {
         fetch();
         decode();
+        execute();
         cout << "Instr = " << instr_str[instruction]
              <<  " Imm = " << imm32_t
              << " rs1 = " << rs1
              << " rs2 = " << rs2
              << " rd = " << rd
+             << " breg[rd] = " << breg[rd]
              << endl;
     }
 

@@ -306,12 +306,12 @@ inline void execute () {
             breg[rd] = breg[rs1] >> shamt & ~(masc << (32 - shamt));
             break;}
         case I_nop:
-            breg[rd] = breg[rd];
+            breg[rd] = breg[rd] + 0;
             break;
         case I_ecall:
             switch(breg[17]){ // a7
                 case 1:
-                    printf("%d", breg[10]);
+                    printf("\n%d\n", breg[10]);
                     break;
                 case 4:
                     {
@@ -324,6 +324,7 @@ inline void execute () {
                         break;
                     }
                 case 10:
+                    exit(0);
                     break;    
             }
 
